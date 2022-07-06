@@ -1,18 +1,14 @@
 const {DataTypes} = require("sequelize");
 
 module.exports = (sequelize) => {
-    return sequelize.define("testTable", {
-        id: {
-            type: DataTypes.STRING,
+    return sequelize.define('test', {
+        number_id: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
         },
         ticket: {
             type: DataTypes.STRING,
+            allowNull: false,
         },
-        created_on: {
-            type: DataTypes.NOW,
-        },
-        end_time:{
-            type: DataTypes.DATEONLY,
-        }
     });
-};
+}
