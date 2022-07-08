@@ -1,17 +1,20 @@
-const express = require("express")
-const cors = require("cors");
-const port = process.env.PORT || 3000;
+const express = require("express");
 const app = express();
+const cors = require("cors");
+const port = process.env.PORT || 8080;
 
+require("./app/routes/test.routes")(app);
 var corsOption ={
   origin:"http://localhost:8081"
 };
-
-
 app.use(cors(corsOption))
+app.use(express.json());
+app.use(express.urlencoded({extended:true}))
 
 app.get(
-    '/',(req, res) =>res.send('hello world')
+    '/',(req, res) =>res.json({
+        message:"welcome"
+    })
 )
 app.listen(port, ()=>console.log('sadasf'));
 
